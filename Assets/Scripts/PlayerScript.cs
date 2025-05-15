@@ -23,4 +23,10 @@ public class PlayerScript : NetworkBehaviour
   
     }
     
+    public override void OnNetworkSpawn()
+    {
+//If this is not the owner, turn of player inputs
+        if (!IsOwner) gameObject.GetComponent<PlayerInput>().enabled = false;
+    }
+    
 }
